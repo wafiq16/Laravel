@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateMahasiswaTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('mahasiswa', function (Blueprint $table) {
+            // $table->id();
+            // $table->timestamps();
+            $table->increments('id');
+            $table->string('nama');
+            $table->string('nim');
+            $table->text('alamat');
+            $table->timestamps();
+        });
+        Schema::rename('mahasiswa','mymahasiswa');
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('mahasiswa');
+    }
+}
